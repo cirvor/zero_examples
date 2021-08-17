@@ -1,7 +1,7 @@
 package successx
 
-const defaultCode = 200
-const defaultMsg = "success"
+const DefaultCode = 200
+const DefaultMsg = "success"
 
 type SuccessResponse struct {
 	Code int    `json:"code"`
@@ -10,9 +10,9 @@ type SuccessResponse struct {
 }
 
 func NewMsgSuccess(msg string, data interface{}) *SuccessResponse {
-	return &SuccessResponse{Code: defaultCode, Msg: msg, Data: data}
+	return &SuccessResponse{Code: DefaultCode, Msg: msg, Data: data}
 }
 
 func NewDefaultSuccess(data interface{}) *SuccessResponse {
-	return NewMsgSuccess(defaultMsg, data)
+	return NewMsgSuccess(DefaultMsg, data)
 }
