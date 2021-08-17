@@ -1,12 +1,12 @@
 package main
 
 import (
-	errorx2 "book/common/response/errorx"
 	"flag"
 	"fmt"
 	"github.com/tal-tech/go-zero/rest/httpx"
 	"net/http"
 
+	"book/common/response/errorx"
 	"book/service/user/api/internal/config"
 	"book/service/user/api/internal/handler"
 	"book/service/user/api/internal/svc"
@@ -32,10 +32,10 @@ func main() {
 	// 自定义错误
 	httpx.SetErrorHandler(func(err error) (int, interface{}) {
 		switch e := err.(type) {
-		case *errorx2.CodeError:
+		case *errorx.CodeError:
 			return http.StatusOK, e.Data()
 		default:
-			return http.StatusInternalServerError, nil
+			return http.StatusInternalServerError, e.Error()
 		}
 	})
 

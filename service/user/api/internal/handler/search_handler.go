@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"book/common/response/errorx"
 	"net/http"
 
 	"book/service/user/api/internal/logic"
@@ -12,9 +13,11 @@ import (
 
 func searchHandler(ctx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+
+		// validate the request
 		var req types.SearchReq
 		if err := httpx.Parse(r, &req); err != nil {
-			httpx.Error(w, err)
+			httpx.Error(w, errorx.NewDefaultError(err.Error()))
 			return
 		}
 

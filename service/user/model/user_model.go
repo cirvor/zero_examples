@@ -61,7 +61,7 @@ type (
 
 func NewUserModel(conn sqlx.SqlConn, c cache.CacheConf) UserModel {
 	return &defaultUserModel{
-		CachedConn: sqlc.NewConn(conn, c),
+		CachedConn: sqlc.NewConn(conn, c, cache.WithExpiry(30*time.Minute)),
 		table:      "`user`",
 	}
 }
