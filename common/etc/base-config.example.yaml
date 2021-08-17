@@ -1,6 +1,6 @@
 Name: user-api
 Host: 0.0.0.0
-Port: 8888
+Port: 9999
 MysqlRead:
   DataSource: {MYSQL_USER}:{MYSQL_PWD}@tcp(127.0.0.1)/book_read?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
 MysqlWrite:

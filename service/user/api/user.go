@@ -16,16 +16,29 @@ import (
 	"github.com/tal-tech/go-zero/rest"
 )
 
-var configFile = flag.String("f", "", "the config file")
+var configFile = flag.String("f", "service/user/api/etc/config.conf", "the config file")
 
 func main() {
 	flag.Parse()
 
+	baseConfigFile := "common/etc/base-config.yaml"
+
 	var c config.Config
 
-	// load all config
-	conf.MustLoad(*configFile, &c)
-	// load logx config
+	// load all configs
+	conf.MustLoad(baseConfigFile, &c)
+
+	// load private configs
+	if *configFile != "" {
+		props, err := conf.LoadProperties(*configFile)
+		if err != nil {
+			panic(err)
+		}
+		c.Name = props.GetString("Name")
+		c.Port = props.GetInt("Port")
+	}
+
+	// load logx configs
 	logx.MustSetup(c.LogConf)
 
 	ctx := svc.NewServiceContext(c)
