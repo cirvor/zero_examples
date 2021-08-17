@@ -1,0 +1,35 @@
+type (
+	LoginReq {
+		Username string `form:"username"`
+		Password string `form:"password"`
+	}
+
+	LoginReply {
+		Id           int64  `json:"id"`
+		Name         string `json:"name"`
+		Gender       string `json:"gender"`
+		AccessToken  string `json:"accessToken"`
+		AccessExpire int64  `json:"accessExpire"`
+		RefreshAfter int64  `json:"refreshAfter"`
+	}
+
+	SearchReq {
+		Number string `form:"number"`
+	}
+
+	SearchReply {
+		Id     int64  `json:"id"`
+		Name   string `json:"name"`
+		Gender string `json:"gender"`
+	}
+)
+
+service user-api {
+	@handler login
+	post /user/login (LoginReq) returns (LoginReply)
+}
+
+service user-api {
+	@handler search
+	post /user/search (SearchReq) returns (SearchReply)
+}

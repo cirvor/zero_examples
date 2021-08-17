@@ -1,0 +1,13 @@
+Name: user-api
+Host: 0.0.0.0
+Port: 8888
+MysqlRead:
+  DataSource: {MYSQL_USER}:{MYSQL_PWD}@tcp(127.0.0.1)/book_read?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+MysqlWrite:
+  DataSource: {MYSQL_USER}:{MYSQL_PWD}@tcp(127.0.0.1)/book_write?charset=utf8mb4&parseTime=true&loc=Asia%2FShanghai
+CacheRedis:
+  - Host: 127.0.0.1:6379
+    Type: node
+Auth:
+  AccessSecret: {JWT_SERCET}
+  AccessExpire: {JWT_EXPIRE}
