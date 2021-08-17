@@ -1,4 +1,4 @@
-module book
+module zero_examples
 
 go 1.16
 

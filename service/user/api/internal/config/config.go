@@ -1,6 +1,7 @@
 package config
 
 import (
+	"github.com/tal-tech/go-zero/core/logx"
 	"github.com/tal-tech/go-zero/core/stores/cache"
 	"github.com/tal-tech/go-zero/rest"
 )
@@ -15,4 +16,5 @@ type Config struct {
 		DataSource string // mysql链接地址，满足 $user:$password@tcp($ip:$port)/$db?$queries 格式即可
 	}
 	CacheRedis cache.CacheConf // redis缓存
+	LogConf logx.LogConf
 }

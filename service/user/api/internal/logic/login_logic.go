@@ -1,16 +1,16 @@
 package logic
 
 import (
-	"book/common/response/errorx"
-	"book/common/response/successx"
-	"book/service/user/model"
 	"context"
 	"github.com/dgrijalva/jwt-go"
 	"strings"
 	"time"
 
-	"book/service/user/api/internal/svc"
-	"book/service/user/api/internal/types"
+	"zero_examples/common/response/errorx"
+	"zero_examples/common/response/successx"
+	"zero_examples/service/user/api/internal/svc"
+	"zero_examples/service/user/api/internal/types"
+	"zero_examples/service/user/model"
 
 	"github.com/tal-tech/go-zero/core/logx"
 )

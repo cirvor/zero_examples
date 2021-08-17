@@ -4,7 +4,7 @@ package handler
 import (
 	"net/http"
 
-	"book/service/user/api/internal/svc"
+	"zero_examples/service/user/api/internal/svc"
 
 	"github.com/tal-tech/go-zero/rest"
 )

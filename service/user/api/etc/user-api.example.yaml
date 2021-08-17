@@ -11,3 +11,6 @@ CacheRedis:
 Auth:
   AccessSecret: {JWT_SERCET}
   AccessExpire: {JWT_EXPIRE}
+LogConf:
+  Mode: file
+  Level: error
